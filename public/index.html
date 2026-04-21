@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlux | User Todo Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="authView" class="card auth-card">
+      <div class="brand">
+        <p class="eyebrow">TaskFlux</p>
+        <h1>Plan. Track. Finish.</h1>
+        <p>Register once, login fast, and manage your own private task board.</p>
+      </div>
+
+      <div class="tabs">
+        <button id="tabLogin" class="tab active" type="button">Login</button>
+        <button id="tabRegister" class="tab" type="button">Register</button>
+      </div>
+
+      <form id="loginForm" class="form active">
+        <label>Email</label>
+        <input id="loginEmail" type="email" placeholder="you@example.com" required>
+        <label>Password</label>
+        <input id="loginPassword" type="password" placeholder="Enter password" required>
+        <button class="primary" type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="form">
+        <label>Name</label>
+        <input id="registerName" type="text" placeholder="Your name" required>
+        <label>Email</label>
+        <input id="registerEmail" type="email" placeholder="you@example.com" required>
+        <label>Password</label>
+        <input id="registerPassword" type="password" placeholder="Min 6 chars" required>
+        <button class="primary" type="submit">Create account</button>
+      </form>
+
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <section id="appView" class="card app-card hidden">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Dashboard</p>
+          <h2 id="welcomeText">Welcome</h2>
+        </div>
+        <button id="logoutBtn" class="ghost" type="button">Logout</button>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-box"><p>Total</p><h3 id="statTotal">0</h3></article>
+        <article class="stat-box"><p>Pending</p><h3 id="statPending">0</h3></article>
+        <article class="stat-box"><p>Completed</p><h3 id="statCompleted">0</h3></article>
+        <article class="stat-box"><p>Done %</p><h3 id="statPercent">0%</h3></article>
+      </section>
+
+      <form id="todoForm" class="todo-form">
+        <input id="todoTitle" type="text" placeholder="Task title" maxlength="100" required>
+        <input id="todoDescription" type="text" placeholder="Description" maxlength="220">
+        <select id="todoPriority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input id="todoDueDate" type="date">
+        <button class="primary" type="submit">Add Task</button>
+      </form>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all" type="button">All</button>
+        <button class="filter" data-filter="active" type="button">Pending</button>
+        <button class="filter" data-filter="completed" type="button">Completed</button>
+      </div>
+
+      <ul id="todoList" class="todo-list"></ul>
+      <p id="todoMessage" class="message"></p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
